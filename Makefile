@@ -28,6 +28,7 @@ SRC_NAME = ft_bzero.c  /
 			ft_strlcpy.c /
 			ft_strnstr.c /
 			ft_tolower.c /
+			ft_split.c/
 
 SRC = $(addprefix $(SRC_PATH), $(SRC_NAME))
 

@@ -6,7 +6,7 @@
 /*   By: dgalache <dgalache@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/29 18:28:05 by dgalache          #+#    #+#             */
-/*   Updated: 2020/07/01 20:04:08 by dgalache         ###   ########.fr       */
+/*   Updated: 2020/07/03 21:51:24 by dgalache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,13 @@
 #include "ft_bzero.c"
 #include "ft_memcpy.c"
 #include "ft_strchr.c"
+#include "ft_strlen.c"
+#include "ft_strncmp.c"
 #include "ft_strrchr.c"
 #include "ft_tolower.c"
 #include "ft_toupper.c"
-
+#include "ft_strcount.c"
+#include "ft_strtrim.c"
 #include <stdio.h>
 #include <string.h>
 
@@ -39,4 +42,7 @@ int main ()
 
 	printf("TOUPPER ->%c\n" , toupper('A'));
 	printf("FT_TOUPPER ->%c\n" , ft_toupper('A'));
+
+	printf("ft_strcount -> %d\n" , ft_strcount("",""));
+	//printf("ft_strtrim -> %s\n" , ft_strtrim(" ASDASDASDASD  ", " "));
 }

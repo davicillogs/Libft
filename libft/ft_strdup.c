@@ -1,29 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dgalache <dgalache@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/07/01 12:09:07 by dgalache          #+#    #+#             */
-/*   Updated: 2020/07/01 12:31:49 by dgalache         ###   ########.fr       */
+/*   Created: 2020/07/02 19:19:45 by dgalache          #+#    #+#             */
+/*   Updated: 2020/07/03 18:14:39 by dgalache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnstr(const char *haystack, const char *needle , size_t len)
+char	*ft_strdup(const char *s1)
 {
-	size_t len_needle;
+	int		lenstr;
+	int		i;
+	char	*ptr;
 
-	len_needle = ft_strlen(needle);
-	if (*needle)
-		return ((char *) haystack);
-	while (*haystack++ && len-- >= len_needle)
+	i = 0;
+	lenstr = ft_strlen(s1);
+	ptr = (char *) malloc (lenstr + 1);
+
+	if (!ptr)
 	{
-		if(*haystack == *needle && (ft_strncmp(haystack, needle, len_needle) == 0))
-			return((char*) haystack);
-		haystack++;
+		errno = ENOMEM;
+		return (NULL);
 	}
-	return (NULL);
+
+	while(i <= lenstr)
+	{
+		ptr[i] = s1[i];
+		i++;
+	}
+
+	return (ptr);
 }

@@ -6,7 +6,7 @@
 /*   By: dgalache <dgalache@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/30 11:14:02 by dgalache          #+#    #+#             */
-/*   Updated: 2020/07/03 17:29:33 by dgalache         ###   ########.fr       */
+/*   Updated: 2020/07/06 23:01:30 by dgalache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <string.h>
 # include <stdlib.h>
+# include <errno.h>
 
 int				ft_atoi(const char *str);
 void			ft_bzero(void *s, size_t n);
@@ -36,13 +37,15 @@ char			*ft_strjoin(char const *s1, char const *s2);
 size_t			ft_strlcat(char *dst, const char* src, size_t dstsize);
 unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size);
 size_t			ft_strlen(const char *s);
-int				ft_strncmp(char *s1, char *s2, unsigned int n);
+int				ft_strncmp(const char *s1, const char *s2, unsigned int n);
 char			*ft_strnstr(const char *haystack, const char *needle , size_t len);
 char			*ft_strrchr(const char *s, int c);
-char 			*ft_strstrim(char const *s1, char const *set);
 char			*ft_substr(char const *s, unsigned int start, size_t len);
 int				ft_tolower(int c);
 int				ft_toupper(int c);
-
+int				ft_strcount(const char *str, const char *find);
+int				ft_strcountchr(char const *str, char c);
+char			*ft_strtrim(char const *s1, char const *set);
+char			**ft_split(char const *s, char c);
 
 #endif

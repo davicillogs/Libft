@@ -1,27 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_strcount.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dgalache <dgalache@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/07/01 12:37:45 by dgalache          #+#    #+#             */
-/*   Updated: 2020/07/01 12:39:43 by dgalache         ###   ########.fr       */
+/*   Created: 2020/07/03 20:48:42 by dgalache          #+#    #+#             */
+/*   Updated: 2020/07/06 22:01:56 by dgalache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_strncmp(char *s1, char *s2, unsigned int n)
+int		ft_strcount(const char *str, const char *find)
 {
-	while (n != 0)
+	char *f;
+	char *pos;
+	int total;
+
+	f = (char *) find;
+	total = 0;
+
+	while (*str)
 	{
-		if (*s1 != *s2)
-			return (*s1 - *s2);
-		if (*s1++ == 0)
-			return (0);
-		s2++;
-		n--;
+		pos = (char *)str;
+		f = (char *) find;
+
+		while (*pos && *f && *pos == *f)
+		{
+			pos++;
+			f++;
+		}
+		if (!(*f))
+			total++;
+		str++;
 	}
-	return (0);
+	return (total);
 }

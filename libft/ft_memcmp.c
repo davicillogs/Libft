@@ -1,36 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dgalache <dgalache@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/07/01 09:55:26 by dgalache          #+#    #+#             */
-/*   Updated: 2020/07/02 22:31:18 by dgalache         ###   ########.fr       */
+/*   Created: 2020/06/30 12:29:28 by dgalache          #+#    #+#             */
+/*   Updated: 2020/07/03 18:04:05 by dgalache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcat(char *dst, const char* src, size_t dstsize)
+int		ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	size_t	i;
-	size_t	destlen;
-	size_t	srclen;
+	unsigned char *str1;
+	unsigned char *str2;
 
-	i = 0;
-	destlen = ft_strlen(dest);
-	srclen = ft_strlen(src);
-	if (dstsize <= destlen)
-		return (srclen + dstsize);
-	while ((dest[i] != '\0') && i < (dstsize - 1))
-		i++;
-	while (*src && i < (dstsize - 1))
-	{
-		dest[i] = *src;
-		i++;
-		src++;
-	}
-	dest[i] = '\0';
-	return (destlen + srclen);
+	str1 = (unsigned char *)s1;
+	str2 = (unsigned char *)s2;
+	while ((*str1++) == (*str2++) && n--);
+	return (*str1 - *str2);
 }

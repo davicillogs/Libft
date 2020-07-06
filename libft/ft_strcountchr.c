@@ -1,18 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*   ft_strcountchr.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dgalache <dgalache@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/07/03 14:55:45 by dgalache          #+#    #+#             */
-/*   Updated: 2020/07/03 17:15:32 by dgalache         ###   ########.fr       */
+/*   Created: 2020/07/06 22:57:28 by dgalache          #+#    #+#             */
+/*   Updated: 2020/07/06 23:00:39 by dgalache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char * ft_strstrim(char const *s1, char const *set)
+int		ft_strcountchr(char const *str, char c)
 {
+	int count;
+	int i;
 
+	count = 0;
+	i = 1;
+	while(str[i])
+	{
+		if(str[i] == c && (str[i + 1] != c && str[i + 1]))
+			count++;
+		i++;
+	}
+	if(str[i - 1] != c)
+		count++;
+	return(count);
 }
