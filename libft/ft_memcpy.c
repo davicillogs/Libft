@@ -6,7 +6,7 @@
 /*   By: dgalache <dgalache@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/30 09:29:08 by dgalache          #+#    #+#             */
-/*   Updated: 2020/06/30 11:34:19 by dgalache         ###   ########.fr       */
+/*   Updated: 2020/07/07 09:15:49 by dgalache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ void	*ft_memcpy(void *dst, const void *src, size_t n)
 	s_src = (unsigned char *)src;
 	if (dst == src)
 		return (dst);
-	if(dst == NULL && src == NULL)
-		return(NULL);
+	if (dst == NULL && src == NULL)
+		return (NULL);
 	while (n--)
 		(*s_dst++) = (*s_src++);
 	return (dst);

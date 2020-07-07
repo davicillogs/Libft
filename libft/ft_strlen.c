@@ -6,7 +6,7 @@
 /*   By: dgalache <dgalache@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/29 18:51:02 by dgalache          #+#    #+#             */
-/*   Updated: 2020/06/30 10:29:08 by dgalache         ###   ########.fr       */
+/*   Updated: 2020/07/07 09:18:38 by dgalache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@ size_t	ft_strlen(const char *s)
 	size_t i;
 
 	i = 0;
-	while (*s){
+	while (*s)
+	{
 		i++;
 		s++;
 	}

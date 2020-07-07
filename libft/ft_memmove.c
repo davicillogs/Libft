@@ -6,7 +6,7 @@
 /*   By: dgalache <dgalache@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/30 11:10:19 by dgalache          #+#    #+#             */
-/*   Updated: 2020/07/03 17:21:48 by dgalache         ###   ########.fr       */
+/*   Updated: 2020/07/07 09:16:10 by dgalache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,13 @@
 void	*ft_memmove(void *dst, const void *src, size_t len)
 {
 	if (dst == src || len == 0)
-		return(dst);
+		return (dst);
 	if (dst == NULL && src == NULL)
 		return (NULL);
 	if (dst < src)
-		ft_memcpy(dst,src,len);
+		ft_memcpy(dst, src, len);
 	else
-		while(len--)
+		while (len--)
 			*((unsigned char *)(dst + len)) = *((unsigned char *)(src + len));
 	return (dst);
 }

@@ -6,13 +6,13 @@
 /*   By: dgalache <dgalache@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/01 09:55:26 by dgalache          #+#    #+#             */
-/*   Updated: 2020/07/03 18:05:31 by dgalache         ###   ########.fr       */
+/*   Updated: 2020/07/07 09:18:12 by dgalache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcat(char *dst, const char* src, size_t dstsize)
+size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
 	size_t	i;
 	size_t	destlen;

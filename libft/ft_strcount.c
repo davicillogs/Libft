@@ -6,7 +6,7 @@
 /*   By: dgalache <dgalache@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/03 20:48:42 by dgalache          #+#    #+#             */
-/*   Updated: 2020/07/06 22:01:56 by dgalache         ###   ########.fr       */
+/*   Updated: 2020/07/07 09:17:08 by dgalache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,17 @@
 
 int		ft_strcount(const char *str, const char *find)
 {
-	char *f;
-	char *pos;
-	int total;
+	char	*f;
+	char	*pos;
+	int		total;
 
-	f = (char *) find;
+	f = (char *)find;
 	total = 0;
 
 	while (*str)
 	{
 		pos = (char *)str;
-		f = (char *) find;
+		f = (char *)find;
 
 		while (*pos && *f && *pos == *f)
 		{
