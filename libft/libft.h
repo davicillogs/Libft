@@ -6,7 +6,7 @@
 /*   By: dgalache <dgalache@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/30 11:14:02 by dgalache          #+#    #+#             */
-/*   Updated: 2020/07/06 23:01:30 by dgalache         ###   ########.fr       */
+/*   Updated: 2020/07/07 09:47:32 by dgalache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,5 +47,6 @@ int				ft_strcount(const char *str, const char *find);
 int				ft_strcountchr(char const *str, char c);
 char			*ft_strtrim(char const *s1, char const *set);
 char			**ft_split(char const *s, char c);
+char			*ft_strndup(const char *s1, unsigned int n);
 
 #endif

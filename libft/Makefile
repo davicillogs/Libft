@@ -33,6 +33,7 @@ SRC = ft_bzero.c\
 			ft_strtrim.c\
 			ft_tolower.c\
 			ft_strcountchr.c\
+			ft_strndup.c\
 			ft_split.c
 
 OBJ = $(SRC:.c=.o)
