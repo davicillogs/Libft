@@ -6,7 +6,7 @@
 /*   By: dgalache <dgalache@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/02 21:08:15 by dgalache          #+#    #+#             */
-/*   Updated: 2020/07/07 09:22:43 by dgalache         ###   ########.fr       */
+/*   Updated: 2020/07/07 10:22:24 by dgalache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,11 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		return (NULL);
 	if (start > len_s)
 		ft_strdup("");
-
 	if (!(ptr = (char *)malloc((len + 1) * sizeof(char))))
 		return (NULL);
 	while (i < len && i <= len_s)
 	{
-		ptr[i] = s[i + start++];
+		ptr[i] = s[i + start];
 		i++;
 	}
 	ptr[i] = 0;
