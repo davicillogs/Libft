@@ -1,41 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_split.c                                         :+:      :+:    :+:   */
+/*   ft_strncat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dgalache <dgalache@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/07/06 22:20:35 by dgalache          #+#    #+#             */
-/*   Updated: 2020/07/07 10:25:24 by dgalache         ###   ########.fr       */
+/*   Created: 2020/07/07 11:58:03 by dgalache          #+#    #+#             */
+/*   Updated: 2020/07/07 12:04:44 by dgalache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	**ft_split(char const *s, char c)
+char	*ft_strncat(char *dest, char *src, unsigned int nb)
 {
-	int		i;
-	int		j;
-	char	**ptr;
-	int		count;
+	char *save;
 
-	j = 0;
-	count = ft_strcountchr(s, c);
-	ptr = (char **)malloc((sizeof(char *) * count) + 1);
-
-	while (count-- + 1)
-	{
-		while (*s == c)
-			s++;
-		i = 0;
-		while (s[i] != c && s[i])
-			i++;
-		ptr[j] = (char *)malloc(++i);
-		ft_memcpy(ptr[j], s, i - 1);
-		ptr[j][i - 1] = 0;
-		s += i;
-		j++;
-	}
-	ptr[j] = 0;
-	return (ptr);
+	save = dest;
+	while (*dest)
+		dest++;
+	while (*src && nb--)
+		*dest++ = *src++;
+	*dest = '\0';
+	return (save);
 }

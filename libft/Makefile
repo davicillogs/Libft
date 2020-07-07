@@ -34,14 +34,13 @@ SRC = ft_bzero.c\
 			ft_tolower.c\
 			ft_strcountchr.c\
 			ft_strndup.c\
+			ft_itoa.c\
+			ft_strncat.c\
 			ft_split.c
 
 OBJ = $(SRC:.c=.o)
 
 all: $(NAME)
-
-
-### TODO : Pretty makefile
 
 $(NAME): $(OBJ)
 	ar rc $(NAME) $(OBJ)
