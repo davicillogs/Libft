@@ -1,36 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strndup.c                                       :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dgalache <dgalache@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/07/02 19:19:45 by dgalache          #+#    #+#             */
-/*   Updated: 2020/07/08 20:15:26 by dgalache         ###   ########.fr       */
+/*   Created: 2020/07/08 15:17:55 by dgalache          #+#    #+#             */
+/*   Updated: 2020/07/08 15:20:26 by dgalache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strndup(const char *s1, unsigned int n)
+void	ft_putendl_fd(char *s, int fd)
 {
-	int		lenstr;
-	int		i;
-	char	*ptr;
-
-	i = 0;
-	lenstr = ft_strlen(s1);
-	ptr = (char *)malloc(lenstr + 1);
-	if (!ptr)
-	{
-		errno = ENOMEM;
-		return (NULL);
-	}
-	while (n--)
-	{
-		ptr[i] = s1[i];
-		i++;
-	}
-	ptr[i] = 0;
-	return (ptr);
+	write(fd, s, ft_strlen(s));
+	write(fd, "\n", 1);
 }

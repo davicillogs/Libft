@@ -36,7 +36,11 @@ SRC = ft_bzero.c\
 			ft_strndup.c\
 			ft_itoa.c\
 			ft_strncat.c\
-			ft_split.c
+			ft_split.c\
+			ft_putchar_fd.c\
+			ft_putstr_fd.c\
+			ft_putendl_fd.c\
+			ft_putnbr_fd.c
 
 OBJ = $(SRC:.c=.o)
 

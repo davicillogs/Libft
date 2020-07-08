@@ -6,36 +6,63 @@
 /*   By: dgalache <dgalache@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/06 22:20:35 by dgalache          #+#    #+#             */
-/*   Updated: 2020/07/07 10:25:24 by dgalache         ###   ########.fr       */
+/*   Updated: 2020/07/08 20:42:55 by dgalache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+int		countbrackets(const char *s, char separator)
+{
+	int			total;
+	const char	*cs;
+
+	cs = s;
+	total = 0;
+	while(*s == separator)
+		s++;
+	while(*s)
+	{
+		if (*(s + 1) && (*(s - 1) == separator || s == cs) && *s != separator)
+			total++;
+		s++;
+	}
+	return (total);
+}
+int		lenbracket(const char *s, char separator)
+{
+	int total;
+
+	total = 0;
+	while(*s && *s++ != separator)
+		total++;
+	return (total);
+}
 char	**ft_split(char const *s, char c)
 {
-	int		i;
-	int		j;
 	char	**ptr;
-	int		count;
+	char	*pt;
+	int		i;
+	int		brackets;
+	int		lbracket;
 
-	j = 0;
-	count = ft_strcountchr(s, c);
-	ptr = (char **)malloc((sizeof(char *) * count) + 1);
-
-	while (count-- + 1)
+	i = 0;
+	brackets = countbrackets(s, c);
+	if (!(ptr = (char **)malloc(sizeof(char *) * brackets + 1)))
+		return(NULL);
+	while (*s)
 	{
-		while (*s == c)
-			s++;
-		i = 0;
-		while (s[i] != c && s[i])
+		if (*s != c)
+		{
+			lbracket = lenbracket(s,c);
+			pt = strndup(s,lbracket);
+			ptr[i] = pt;
 			i++;
-		ptr[j] = (char *)malloc(++i);
-		ft_memcpy(ptr[j], s, i - 1);
-		ptr[j][i - 1] = 0;
-		s += i;
-		j++;
+			s += lbracket;
+		}
+		else
+			s++;
 	}
-	ptr[j] = 0;
+	ptr[i] = 0;
 	return (ptr);
 }

@@ -1,36 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strndup.c                                       :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dgalache <dgalache@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/07/02 19:19:45 by dgalache          #+#    #+#             */
-/*   Updated: 2020/07/08 20:15:26 by dgalache         ###   ########.fr       */
+/*   Created: 2020/07/08 15:27:42 by dgalache          #+#    #+#             */
+/*   Updated: 2020/07/08 15:33:27 by dgalache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strndup(const char *s1, unsigned int n)
+void	ft_putnbr_fd(int n, int fd)
 {
-	int		lenstr;
-	int		i;
-	char	*ptr;
-
-	i = 0;
-	lenstr = ft_strlen(s1);
-	ptr = (char *)malloc(lenstr + 1);
-	if (!ptr)
+	if (n >= 0 && n < 10)
+		ft_putchar_fd(n + '0',fd);
+	if (n >= 10)
 	{
-		errno = ENOMEM;
-		return (NULL);
+		ft_putnbr_fd(n / 10,fd);
+		ft_putchar_fd((n % 10) + '0',fd);
 	}
-	while (n--)
+	if (n < 0)
 	{
-		ptr[i] = s1[i];
-		i++;
+		ft_putchar_fd('-',fd);
+		if (n > -10)
+			ft_putnbr_fd(n * -1,fd);
+		else
+		{
+			ft_putnbr_fd((n / 10) * -1,fd);
+			ft_putchar_fd(((n % 10) * -1) + '0',fd);
+		}
 	}
-	ptr[i] = 0;
-	return (ptr);
 }
