@@ -6,7 +6,7 @@
 /*   By: dgalache <dgalache@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/06 22:20:35 by dgalache          #+#    #+#             */
-/*   Updated: 2020/07/08 20:42:55 by dgalache         ###   ########.fr       */
+/*   Updated: 2020/07/09 10:02:07 by dgalache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ int		countbrackets(const char *s, char separator)
 
 	cs = s;
 	total = 0;
-	while(*s == separator)
+	while (*s == separator)
 		s++;
-	while(*s)
+	while (*s)
 	{
 		if (*(s + 1) && (*(s - 1) == separator || s == cs) && *s != separator)
 			total++;
@@ -29,15 +29,17 @@ int		countbrackets(const char *s, char separator)
 	}
 	return (total);
 }
+
 int		lenbracket(const char *s, char separator)
 {
 	int total;
 
 	total = 0;
-	while(*s && *s++ != separator)
+	while (*s && *s++ != separator)
 		total++;
 	return (total);
 }
+
 char	**ft_split(char const *s, char c)
 {
 	char	**ptr;
@@ -49,13 +51,13 @@ char	**ft_split(char const *s, char c)
 	i = 0;
 	brackets = countbrackets(s, c);
 	if (!(ptr = (char **)malloc(sizeof(char *) * brackets + 1)))
-		return(NULL);
+		return (NULL);
 	while (*s)
 	{
 		if (*s != c)
 		{
-			lbracket = lenbracket(s,c);
-			pt = strndup(s,lbracket);
+			lbracket = lenbracket(s, c);
+			pt = strndup(s, lbracket);
 			ptr[i] = pt;
 			i++;
 			s += lbracket;

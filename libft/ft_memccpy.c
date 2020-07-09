@@ -1,35 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_memccpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dgalache <dgalache@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/07/08 15:27:42 by dgalache          #+#    #+#             */
-/*   Updated: 2020/07/09 10:06:00 by dgalache         ###   ########.fr       */
+/*   Created: 2020/07/09 10:09:11 by dgalache          #+#    #+#             */
+/*   Updated: 2020/07/09 10:24:28 by dgalache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbr_fd(int n, int fd)
+void	*ft_memccpy(void *dst, const void *src, int c, size_t n)
 {
-	if (n >= 0 && n < 10)
-		ft_putchar_fd(n + '0', fd);
-	if (n >= 10)
+	unsigned char	*str;
+	unsigned char	*str2;
+
+	str = (unsigned char *)dst;
+	str2 = (unsigned char *)src;
+	while (*str2 && n--)
 	{
-		ft_putnbr_fd(n / 10, fd);
-		ft_putchar_fd((n % 10) + '0', fd);
+		*str = *str2;
+		if (*str == (unsigned char)c)
+			return ((void *)(str + 1));
+		str++;
+		str2++;
 	}
-	if (n < 0)
-	{
-		ft_putchar_fd('-', fd);
-		if (n > -10)
-			ft_putnbr_fd(n * -1, fd);
-		else
-		{
-			ft_putnbr_fd((n / 10) * -1, fd);
-			ft_putchar_fd(((n % 10) * -1) + '0', fd);
-		}
-	}
+	return (NULL);
 }
