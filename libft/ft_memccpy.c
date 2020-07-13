@@ -6,7 +6,7 @@
 /*   By: dgalache <dgalache@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/09 10:09:11 by dgalache          #+#    #+#             */
-/*   Updated: 2020/07/09 10:24:28 by dgalache         ###   ########.fr       */
+/*   Updated: 2020/07/13 10:04:08 by dgalache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	*ft_memccpy(void *dst, const void *src, int c, size_t n)
 
 	str = (unsigned char *)dst;
 	str2 = (unsigned char *)src;
-	while (*str2 && n--)
+	while (n--)
 	{
 		*str = *str2;
 		if (*str == (unsigned char)c)

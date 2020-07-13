@@ -6,7 +6,7 @@
 /*   By: dgalache <dgalache@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/07 10:28:13 by dgalache          #+#    #+#             */
-/*   Updated: 2020/07/09 10:02:33 by dgalache         ###   ########.fr       */
+/*   Updated: 2020/07/13 11:46:45 by dgalache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ char	*ft_itoa(int n)
 		sign = 1;
 	if (!(ptr = (char *)malloc(sizeof(char) * (ndigits + sign + 1))))
 		return (NULL);
+	ptr[ndigits + sign] = 0;
 	if (sign)
 		ptr[0] = '-';
 	while (ndigits)

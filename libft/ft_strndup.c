@@ -6,7 +6,7 @@
 /*   By: dgalache <dgalache@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/02 19:19:45 by dgalache          #+#    #+#             */
-/*   Updated: 2020/07/08 20:15:26 by dgalache         ###   ########.fr       */
+/*   Updated: 2020/07/13 13:04:31 by dgalache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,8 @@ char	*ft_strndup(const char *s1, unsigned int n)
 
 	i = 0;
 	lenstr = ft_strlen(s1);
-	ptr = (char *)malloc(lenstr + 1);
-	if (!ptr)
-	{
-		errno = ENOMEM;
+	if (!(ptr = (char *)malloc(n + 1)))
 		return (NULL);
-	}
 	while (n--)
 	{
 		ptr[i] = s1[i];

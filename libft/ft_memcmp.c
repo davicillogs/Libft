@@ -6,7 +6,7 @@
 /*   By: dgalache <dgalache@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/30 12:29:28 by dgalache          #+#    #+#             */
-/*   Updated: 2020/07/07 09:15:40 by dgalache         ###   ########.fr       */
+/*   Updated: 2020/07/13 10:21:10 by dgalache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int		ft_memcmp(const void *s1, const void *s2, size_t n)
 	str2 = (unsigned char *)s2;
 	if (n <= 0)
 		return (0);
-	while (--n && *str1 && *str2 && (*str1) == (*str2))
+	while (--n && str1 && str2 && (*str1) == (*str2))
 	{
 		str1++;
 		str2++;

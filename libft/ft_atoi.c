@@ -6,7 +6,7 @@
 /*   By: dgalache <dgalache@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/01 12:45:20 by dgalache          #+#    #+#             */
-/*   Updated: 2020/07/07 09:14:30 by dgalache         ###   ########.fr       */
+/*   Updated: 2020/07/13 12:42:48 by dgalache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int	ft_atoi(const char *str)
 {
-	int total;
-	int sign;
+	int		total;
+	int		sign;
 
 	total = 0;
 	sign = 1;
@@ -32,5 +32,6 @@ int	ft_atoi(const char *str)
 		total = total * 10 + (*str - 48);
 		str++;
 	}
-	return (total * sign);
+	total = total * sign;
+	return (total);
 }
