@@ -60,7 +60,6 @@ all: $(NAME)
 
 $(NAME): $(OBJ)
 	ar rcs $(NAME) $(OBJ)
-	ranlib $(NAME)
 clean:
 	$(RM) $(OBJ) $(OBJ_B)
 
