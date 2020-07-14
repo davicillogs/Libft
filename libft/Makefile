@@ -1,8 +1,6 @@
-NAME = libft.a
-
-FLAGS = -Wall -Wextra -Werror -g
-
-INC = ./includes
+CC = gcc
+CFLAGS = -Wall -Wextra -Werror -I.
+RM = rm -f
 
 SRC = ft_bzero.c\
 			ft_isalpha.c\
@@ -42,8 +40,10 @@ SRC = ft_bzero.c\
 			ft_putendl_fd.c\
 			ft_putnbr_fd.c\
 			ft_memccpy.c\
-			ft_strmapi.c\
-			ft_lstnew.c\
+			ft_strmapi.c
+OBJ = $(SRC:.c=.o)
+
+SRC_B = ft_lstnew.c\
 			ft_lstadd_front.c\
 			ft_lstsize.c\
 			ft_lstlast.c\
@@ -52,21 +52,24 @@ SRC = ft_bzero.c\
 			ft_lstclear.c\
 			ft_lstiter.c\
 			ft_lstmap.c
+OBJ_B = $(SRC_B:.c=.o)
 
-OBJ = $(SRC:.c=.o)
+NAME = libft.a
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	ar rc $(NAME) $(OBJ)
+	ar rcs $(NAME) $(OBJ)
 	ranlib $(NAME)
-%.o:%.c
-	gcc -c $(FLAGS) -I $(INC) $< -o $@
-
 clean:
-	/bin/rm -f $(OBJ)
+	$(RM) $(OBJ) $(OBJ_B)
 
 fclean: clean
-	/bin/rm -f $(NAME)
+	$(RM) $(NAME)
 
 re: fclean all
+
+bonus: $(OBJ) $(OBJ_B)
+	ar rcs $(NAME) $(OBJ) $(OBJ_B)
+
+.PHONY:	all clean fclean re bonus

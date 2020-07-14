@@ -6,7 +6,7 @@
 /*   By: dgalache <dgalache@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/30 11:14:02 by dgalache          #+#    #+#             */
-/*   Updated: 2020/07/13 13:09:52 by dgalache         ###   ########.fr       */
+/*   Updated: 2020/07/14 09:26:39 by dgalache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 # include <string.h>
 # include <stdlib.h>
-# include <errno.h>
 # include <unistd.h>
 
 typedef struct	s_list
