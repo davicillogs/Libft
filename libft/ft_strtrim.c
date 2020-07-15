@@ -6,13 +6,13 @@
 /*   By: dgalache <dgalache@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/03 14:55:45 by dgalache          #+#    #+#             */
-/*   Updated: 2020/07/07 10:15:05 by dgalache         ###   ########.fr       */
+/*   Updated: 2020/07/15 18:18:01 by dgalache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		setcontains(char c, char const *set)
+static int		setcontains(char c, char const *set)
 {
 	while (*set)
 	{
@@ -23,7 +23,7 @@ int		setcontains(char c, char const *set)
 	return (0);
 }
 
-char	*ft_strtrim(char const *s1, char const *set)
+char			*ft_strtrim(char const *s1, char const *set)
 {
 	char	*ptr;
 	int		slesschr;

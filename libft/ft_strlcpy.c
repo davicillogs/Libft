@@ -6,13 +6,13 @@
 /*   By: dgalache <dgalache@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/30 14:52:05 by dgalache          #+#    #+#             */
-/*   Updated: 2020/07/07 09:18:28 by dgalache         ###   ########.fr       */
+/*   Updated: 2020/07/15 18:17:30 by dgalache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void			copiar(char *dest, char *src, unsigned int n)
+static void				copiar(char *dest, char *src, unsigned int n)
 {
 	unsigned int i;
 
@@ -26,7 +26,7 @@ void			copiar(char *dest, char *src, unsigned int n)
 	}
 }
 
-unsigned int	longitud(char *a)
+static unsigned int		longitud(char *a)
 {
 	unsigned int i;
 
@@ -39,7 +39,7 @@ unsigned int	longitud(char *a)
 	return (i);
 }
 
-unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
+unsigned int			ft_strlcpy(char *dest, char *src, unsigned int size)
 {
 	unsigned int srclen;
 

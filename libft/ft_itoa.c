@@ -6,13 +6,13 @@
 /*   By: dgalache <dgalache@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/07 10:28:13 by dgalache          #+#    #+#             */
-/*   Updated: 2020/07/13 11:46:45 by dgalache         ###   ########.fr       */
+/*   Updated: 2020/07/15 18:16:24 by dgalache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		countdigits(int nbr)
+static int		countdigits(int nbr)
 {
 	int total;
 
@@ -22,7 +22,7 @@ int		countdigits(int nbr)
 	return (total);
 }
 
-char	*ft_itoa(int n)
+char			*ft_itoa(int n)
 {
 	char	*ptr;
 	int		sign;

@@ -6,13 +6,13 @@
 /*   By: dgalache <dgalache@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/06 22:20:35 by dgalache          #+#    #+#             */
-/*   Updated: 2020/07/13 13:15:49 by dgalache         ###   ########.fr       */
+/*   Updated: 2020/07/15 18:34:46 by dgalache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		countbrackets(const char *s, char separator)
+static int		countbrackets(const char *s, char separator)
 {
 	int			total;
 	const char	*cs;
@@ -30,7 +30,7 @@ int		countbrackets(const char *s, char separator)
 	return (total);
 }
 
-int		lenbracket(const char *s, char separator)
+static int		lenbracket(const char *s, char separator)
 {
 	int total;
 
@@ -40,7 +40,18 @@ int		lenbracket(const char *s, char separator)
 	return (total);
 }
 
-char	**ft_split(char const *s, char c)
+static void		*ft_strsdestroy(char **strs)
+{
+	int	i;
+
+	i = -1;
+	while (strs[++i] != NULL)
+		free(strs[i]);
+	free(strs);
+	return (NULL);
+}
+
+char			**ft_split(char const *s, char c)
 {
 	char	**ptr;
 	char	*pt;
@@ -57,7 +68,8 @@ char	**ft_split(char const *s, char c)
 		if (*s != c)
 		{
 			lbracket = lenbracket(s, c);
-			pt = strndup(s, lbracket);
+			if (!(pt = ft_strndup(s, lbracket)))
+				return (ft_strsdestroy(ptr));
 			ptr[i] = pt;
 			i++;
 			s += lbracket;
