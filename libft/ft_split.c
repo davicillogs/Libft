@@ -6,7 +6,7 @@
 /*   By: dgalache <dgalache@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/06 22:20:35 by dgalache          #+#    #+#             */
-/*   Updated: 2020/07/15 18:34:46 by dgalache         ###   ########.fr       */
+/*   Updated: 2020/07/17 01:34:48 by dgalache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,8 +70,7 @@ char			**ft_split(char const *s, char c)
 			lbracket = lenbracket(s, c);
 			if (!(pt = ft_strndup(s, lbracket)))
 				return (ft_strsdestroy(ptr));
-			ptr[i] = pt;
-			i++;
+			ptr[i++] = pt;
 			s += lbracket;
 		}
 		else
