@@ -6,7 +6,7 @@
 /*   By: dgalache <dgalache@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/03 14:55:45 by dgalache          #+#    #+#             */
-/*   Updated: 2020/07/15 18:18:01 by dgalache         ###   ########.fr       */
+/*   Updated: 2020/07/17 20:11:20 by dgalache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,9 +40,8 @@ char			*ft_strtrim(char const *s1, char const *set)
 	i = lens1 - 1;
 	while (slesschr < lens1 && setcontains(s1[i--], set))
 		flesschr += 1;
-	if (!(ptr = (char *)malloc(lens1 - (slesschr + flesschr) + 1)))
+	if (!(ptr = ft_strndup(s1 + slesschr, lens1 - (slesschr + flesschr))))
 		return (NULL);
-	ptr = ft_strndup(s1 + slesschr, lens1 - (slesschr + flesschr));
 	ptr[lens1 - (slesschr + flesschr)] = 0;
 	return (ptr);
 }
