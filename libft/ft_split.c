@@ -6,7 +6,7 @@
 /*   By: dgalache <dgalache@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/06 22:20:35 by dgalache          #+#    #+#             */
-/*   Updated: 2020/07/17 01:34:48 by dgalache         ###   ########.fr       */
+/*   Updated: 2020/07/17 13:27:06 by dgalache         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,25 @@
 
 static int		countbrackets(const char *s, char separator)
 {
-	int			total;
-	const char	*cs;
+	int	comp;
+	int	cles;
 
-	cs = s;
-	total = 0;
-	while (*s == separator)
-		s++;
-	while (*s)
+	comp = 0;
+	cles = 0;
+	if (*s == '\0')
+		return (0);
+	while (*s != '\0')
 	{
-		if (*(s + 1) && (*(s - 1) == separator || s == cs) && *s != separator)
-			total++;
+		if (*s == separator)
+			cles = 0;
+		else if (cles == 0)
+		{
+			cles = 1;
+			comp++;
+		}
 		s++;
 	}
-	return (total);
+	return (comp);
 }
 
 static int		lenbracket(const char *s, char separator)
@@ -40,13 +45,13 @@ static int		lenbracket(const char *s, char separator)
 	return (total);
 }
 
-static void		*ft_strsdestroy(char **strs)
+static void		*ft_free_str(char **strs, int j)
 {
-	int	i;
-
-	i = -1;
-	while (strs[++i] != NULL)
-		free(strs[i]);
+	while (j > 0)
+	{
+		j--;
+		free((void *)strs[j]);
+	}
 	free(strs);
 	return (NULL);
 }
@@ -61,7 +66,7 @@ char			**ft_split(char const *s, char c)
 
 	i = 0;
 	brackets = countbrackets(s, c);
-	if (!(ptr = (char **)malloc(sizeof(char *) * brackets + 1)))
+	if (!s || (!(ptr = (char **)malloc(sizeof(char *) * (brackets + 1)))))
 		return (NULL);
 	while (*s)
 	{
@@ -69,7 +74,7 @@ char			**ft_split(char const *s, char c)
 		{
 			lbracket = lenbracket(s, c);
 			if (!(pt = ft_strndup(s, lbracket)))
-				return (ft_strsdestroy(ptr));
+				return (ft_free_str(ptr,i));
 			ptr[i++] = pt;
 			s += lbracket;
 		}
